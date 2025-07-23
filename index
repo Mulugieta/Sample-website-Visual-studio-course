@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>My Favorite Song</title>
+    <style>
+        body {
+            background-color: #222;
+            color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #ff6347;
+            animation: colorChange 5s infinite alternate;
+        }
+        @keyframes colorChange {
+            0% { color: #ff6347; }
+            100% { color: #1e90ff; }
+        }
+        #animatedBox {
+            width: 100px;
+            height: 100px;
+            margin: 40px auto;
+            background-color: #ff6347;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <h1>My Favorite Song</h1>
+
+    <!-- Embedded YouTube video -->
+    <iframe width="560" height="315" 
+        src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+        title="YouTube video player" frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+    </iframe>
+
+    <!-- Animated box -->
+    <div id="animatedBox"></div>
+
+    <script>
+        // Simple animation: Move box left and right
+        const box = document.getElementById('animatedBox');
+        let position = 0;
+        let direction = 1;
+
+        function animate() {
+            if (position > 200) direction = -1;
+            if (position < 0) direction = 1;
+            position += direction * 2;
+            box.style.left = position + 'px';
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+    </script>
+</body>
+</html>
